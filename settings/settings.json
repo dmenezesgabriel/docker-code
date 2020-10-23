@@ -1,0 +1,110 @@
+{
+  // Python
+  "python.venvPath": "~/Environments",
+  "python.pythonPath": "~/environments/general/bin/python",
+  "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.enabled": true,
+  "python.testing.pytestEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "editor.rulers": [
+    80,
+    100
+  ],
+  "python.linting.flake8Args": [
+    "--ignore=E203"
+  ],
+  "editor.formatOnSave": true,
+  "python.sortImports.args": [
+    "-rc",
+    "-sp isort.cfg"
+  ],
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [
+    "--line-length=79"
+  ],
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  // General
+  "window.zoomLevel": -1,
+  "workbench.colorTheme": "Dracula Soft",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.labelFormat": "short",
+  // React Native
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "explorer.confirmDelete": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.languageServer": "Microsoft",
+  "cSpell.language": "en,pt,pt_PT",
+  "files.associations": {
+    "*.yml": "yaml"
+  },
+  "cSpell.userWords": [
+    "psycopg"
+  ],
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "sonarlint.ls.javaHome": "/home/gabriel/.vscode/extensions/sonarsource.sonarlint_managed-jre/jre/jdk-11.0.8+10-jre",
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": ""
+    }
+  ],
+  "mssql.format.alignColumnDefinitionsInColumns": true,
+  "mssql.intelliSense.lowerCaseSuggestions": true,
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "graphql",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "python",
+    "pug",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml",
+    "ipynb"
+  ],
+  "cSpell.allowedSchemas": [
+    "file",
+    "gist",
+    "sftp",
+    "untitled",
+    "ipynb"
+  ]
+}

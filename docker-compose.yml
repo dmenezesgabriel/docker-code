@@ -1,0 +1,11 @@
+version: "2.1"
+services:
+  code-server:
+    build:
+      context: .
+    container_name: code-server
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    env_file:
+      - .env
