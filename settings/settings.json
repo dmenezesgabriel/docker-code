@@ -1,7 +1,7 @@
 {
   // Python
-  "python.venvPath": "~/Environments",
-  "python.pythonPath": "~/environments/general/bin/python",
+  "python.venvPath": "/opt/venv/",
+  "python.pythonPath": "/opt/venv/bin/python",
   "python.dataScience.sendSelectionToInteractiveWindow": true,
   "python.linting.pylintEnabled": false,
   "python.linting.pycodestyleEnabled": false,

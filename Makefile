@@ -1,9 +1,5 @@
-setup:
-	chmod +x scripts/setup.sh && \
-	scripts/setup.sh
-
 build:
-	docker-compose build
+	time docker-compose build
 
 run:
 	docker-compose up

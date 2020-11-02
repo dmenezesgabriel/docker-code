@@ -1,19 +1,21 @@
 FROM python:3.8-slim-buster
 
+ENV CODE_SERVER_VERSION=3.2.0
 
 COPY settings/settings.json /root/.local/share/code-server/User/settings.json
 
+RUN apt-get update && apt-get install --no-install-recommends -y wget python3-venv
+RUN python3 -m venv /opt/venv
+
 WORKDIR /home
 
-RUN apt-get update && apt-get install --no-install-recommends -y wget
-
-RUN wget https://github.com/cdr/code-server/releases/download/3.2.0/code-server-3.2.0-linux-x86_64.tar.gz
-RUN tar -xzvf code-server-3.2.0-linux-x86_64.tar.gz
+RUN wget https://github.com/cdr/code-server/releases/download/$CODE_SERVER_VERSION/code-server-$CODE_SERVER_VERSION-linux-x86_64.tar.gz
+RUN tar -xzvf code-server-$CODE_SERVER_VERSION-linux-x86_64.tar.gz
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
-RUN ./code-server-3.2.0-linux-x86_64/code-server \
+RUN /opt/venv/bin/pip install -r requirements.txt
+RUN ./code-server-$CODE_SERVER_VERSION-linux-x86_64/code-server \
     # Python
     --install-extension ms-python.python --force \
     # Auto rename HTML tags
@@ -45,4 +47,10 @@ RUN ./code-server-3.2.0-linux-x86_64/code-server \
 # Instal VimL syntax highlight
 # Install Brack pair colorizer
 
-ENTRYPOINT [ "./code-server-3.2.0-linux-x86_64/code-server", "--host", "0.0.0.0", "--disable-telemetry", "--port", "8989"]
+RUN mkdir -p /project
+
+VOLUME [ "/home/project" ]
+
+COPY scripts/entrypoint.sh .
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT [ "./entrypoint.sh"]
