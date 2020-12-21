@@ -2,8 +2,8 @@ version: "2.1"
 services:
   code-server:
     build:
-      context: .
-      dockerfile: Dockerfile.pi
+      context: ./services/vscode
+      dockerfile: Dockerfile
     container_name: code-server
     ports:
       - 8989:8989
@@ -12,3 +12,18 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile
+    ports:
+      - 1337:80
+    depends_on:
+      - "code-server"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
+    # restart: unless-stopped
