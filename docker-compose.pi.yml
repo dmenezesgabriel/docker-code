@@ -3,7 +3,7 @@ services:
   code-server:
     build:
       context: ./services/vscode
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.pi
     container_name: code-server
     ports:
       - 8989:8989
